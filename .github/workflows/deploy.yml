@@ -30,4 +30,3 @@ jobs:
           directory: ./
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: 3
-          ozone: true
