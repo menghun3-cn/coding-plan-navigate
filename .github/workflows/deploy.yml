@@ -21,12 +21,18 @@ jobs:
         run: |
           rm -f *.md
 
+      - name: Copy files to public directory
+        run: |
+          mkdir -p public
+          cp -r * public/
+          cp -r .??* public/ 2>/dev/null || true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: coding-plan-navigate
-          directory: ./
+          directory: ./public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: 3
