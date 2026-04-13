@@ -664,7 +664,28 @@
             <div class="footer-copyright">
                 © 2026 AI Coding Plan 导航 | 仅供学习参考
             </div>
-        </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navPills = document.querySelectorAll('.nav-pill');
+            const sections = {
+                '概览': document.querySelector('.hero'),
+                '国内平台': document.getElementById('domestic'),
+                '海外平台': document.getElementById('international')
+            };
+
+            navPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    navPills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const target = sections[this.textContent];
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
