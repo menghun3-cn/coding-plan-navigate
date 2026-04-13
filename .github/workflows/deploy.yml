@@ -24,8 +24,9 @@ jobs:
       - name: Copy files to public directory
         run: |
           mkdir -p public
-          cp -r * public/
-          cp -r .??* public/ 2>/dev/null || true
+          shopt -s extglob
+          cp -r !(public) public/
+          cp -r .!(?) public/ 2>/dev/null || true
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
