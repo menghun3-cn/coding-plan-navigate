@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Coding Plan 导航 - 购买页面汇总</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-6: #1456f0;
+            --col-brand00: #3daeff;
+            --col-brand02: #ea5ec1;
+            --color-primary-200: #bfdbfe;
+            --color-primary-light: #60a5fa;
+            --color-primary-500: #3b82f6;
+            --color-primary-600: #2563eb;
+            --color-primary-700: #1d4ed8;
+            --brand-3: #17437d;
+            --col-text00: #222222;
+            --col-text04: #45515e;
+            --col-dark: #18181b;
+            --col-charcoal: #181e25;
+            --col-gray-mid: #8e8e93;
+            --col-gray-light: #5f5f5f;
+            --col-white: #ffffff;
+            --col-bg-light: #f0f0f0;
+            --fill-bg-white: hsla(0, 0%, 100%, 0.4);
+            --border-light: #f2f3f5;
+            --border-gray: #e5e7eb;
+            --success-bg: #e8ffea;
+            --shadow-standard: rgba(0, 0, 0, 0.08) 0px 4px 6px;
+            --shadow-soft-glow: rgba(0, 0, 0, 0.08) 0px 0px 22.576px;
+            --shadow-brand-purple: rgba(44, 30, 116, 0.16) 0px 0px 15px;
+            --shadow-brand-offset: rgba(44, 30, 116, 0.11) 6.5px 2px 17.5px;
+            --shadow-card-elevation: rgba(36, 36, 36, 0.08) 0px 12px 16px -4px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--col-white);
+            color: var(--col-text00);
+            line-height: 1.50;
+            font-size: 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--col-white);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--col-dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--brand-6);
+        }
+
+        .nav-pills {
+            display: flex;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 4px;
+            border-radius: 9999px;
+        }
+
+        .nav-pill {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--col-dark);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+        .nav-pill:hover {
+            background: var(--col-white);
+        }
+
+        .nav-pill.active {
+            background: var(--col-white);
+            box-shadow: var(--shadow-standard);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 80px;
+            font-weight: 500;
+            line-height: 1.10;
+            color: var(--col-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--brand-6), var(--col-brand00));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--col-text04);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 11px 20px;
+            background: var(--col-charcoal);
+            color: var(--col-white);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--col-dark);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 64px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 31px;
+            font-weight: 600;
+            color: var(--col-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--col-gray-mid);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--col-white);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--shadow-standard);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-card-elevation);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--col-dark);
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            color: var(--col-gray-mid);
+        }
+
+        .card-badge {
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-domestic {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+        }
+
+        .badge-international {
+            background: linear-gradient(135deg, var(--color-primary-500), var(--col-brand00));
+            color: white;
+        }
+
+        .card-models {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .model-tag {
+            padding: 4px 10px;
+            background: var(--color-primary-200);
+            color: var(--brand-3);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .card-link {
+            display: block;
+            width: 100%;
+            padding: 10px 16px;
+            background: var(--brand-6);
+            color: var(--col-white);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .card-link:hover {
+            background: var(--color-primary-600);
+        }
+
+        footer {
+            background: var(--col-charcoal);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 48px 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--col-white);
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border-gray);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">AI Coding <span>Plan</span></a>
+            <nav class="nav-pills">
+                <button class="nav-pill active">概览</button>
+                <button class="nav-pill">国内平台</button>
+                <button class="nav-pill">海外平台</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>AI Coding Plan<br><span>购买导航</span></h1>
+            <p>汇集国内外主流AI编程工具的订阅购买页面，一键直达，快速找到最适合你的Coding Plan</p>
+            <a href="#domestic" class="btn-primary">查看国内平台 →</a>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="domestic" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🇨🇳 国内 AI Coding Plan</h2>
+                <p class="section-subtitle">8大国内平台，支持国产大模型，本地化服务更便捷</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">阿里云百炼</h3>
+                            <p class="card-subtitle">通义灵码 Coding Plan</p>
+                        </div>
+                        <span class="card-badge badge-domestic">热门</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">Qwen-3.6-Plus</span>
+                        <span class="model-tag">GLM-4.7</span>
+                        <span class="model-tag">Kimi-K2.5</span>
+                    </div>
+                    <a href="https://www.aliyun.com/benefit/scene/codingplan" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">腾讯云</h3>
+                            <p class="card-subtitle">混元大模型 Coding Plan</p>
+                        </div>
+                        <span class="card-badge badge-domestic">推荐</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">Tencent HY 2.0</span>
+                        <span class="model-tag">GLM-5</span>
+                        <span class="model-tag">Kimi-K2.5</span>
+                    </div>
+                    <a href="https://curl.qcloud.com/R4e1M1sR" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">字节·方舟</h3>
+                            <p class="card-subtitle">火山引擎 Coding Plan</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">Doubao-Seed-2.0</span>
+                        <span class="model-tag">DeepSeek-V3.2</span>
+                        <span class="model-tag">GLM-4.7</span>
+                    </div>
+                    <a href="https://console.volcengine.com/coding" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">智谱 GLM</h3>
+                            <p class="card-subtitle">ChatGLM Coding Plan</p>
+                        </div>
+                        <span class="card-badge badge-domestic">5倍用量</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">GLM-5.1</span>
+                        <span class="model-tag">GLM-5-Turbo</span>
+                        <span class="model-tag">GLM-5</span>
+                    </div>
+                    <a href="https://www.zhipuai.cn/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">MiniMax</h3>
+                            <p class="card-subtitle">MiniMax Coding Plan</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">MiniMax-M2.7</span>
+                        <span class="model-tag">MiniMax-M2.5</span>
+                    </div>
+                    <a href="https://www.minimax.io/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Kimi</h3>
+                            <p class="card-subtitle">月之暗面 Coding Plan</p>
+                        </div>
+                        <span class="card-badge badge-domestic">多模态</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">Kimi K2.5</span>
+                        <span class="model-tag">原生多模态</span>
+                    </div>
+                    <a href="https://platform.moonshot.cn/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">百度</h3>
+                            <p class="card-subtitle">文心快码 Comate</p>
+                        </div>
+                        <span class="card-badge badge-domestic">免费</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">文心大模型4.0</span>
+                        <span class="model-tag">Java/Python优化</span>
+                    </div>
+                    <a href="https://comate.baidu.com/" target="_blank" class="card-link">前往使用</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">科大讯飞</h3>
+                            <p class="card-subtitle">iFlyCode</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">GLM-5.1</span>
+                        <span class="model-tag">Qwen3.5-397B</span>
+                    </div>
+                    <a href="https://maas.xfyun.cn/modelSquare" target="_blank" class="card-link">前往订阅</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="international" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🌍 海外 AI Coding Plan</h2>
+                <p class="section-subtitle">10大海外平台，国际顶级AI编程工具</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">GitHub Copilot</h3>
+                            <p class="card-subtitle">OpenAI 驱动</p>
+                        </div>
+                        <span class="card-badge badge-international">行业标杆</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">GPT-4</span>
+                        <span class="model-tag">Codex</span>
+                    </div>
+                    <a href="https://github.com/features/copilot" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Cursor</h3>
+                            <p class="card-subtitle">AI原生代码编辑器</p>
+                        </div>
+                        <span class="card-badge badge-international">最火</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">GPT-4</span>
+                        <span class="model-tag">Claude 3.5</span>
+                        <span class="model-tag">Gemini</span>
+                    </div>
+                    <a href="https://cursor.com/en/pricing" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Claude Code</h3>
+                            <p class="card-subtitle">Anthropic</p>
+                        </div>
+                        <span class="card-badge badge-international">高端</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">Claude 3.7</span>
+                        <span class="model-tag">Claude 3.5</span>
+                    </div>
+                    <a href="https://claude.ai/claude-code" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Tabnine</h3>
+                            <p class="card-subtitle">企业级AI代码补全</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">私有代码训练</span>
+                        <span class="model-tag">团队协作</span>
+                    </div>
+                    <a href="https://www.tabnine.com/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Amazon Q</h3>
+                            <p class="card-subtitle">CodeWhisperer 升级版</p>
+                        </div>
+                        <span class="card-badge badge-international">免费</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">AWS优化</span>
+                        <span class="model-tag">安全扫描</span>
+                    </div>
+                    <a href="https://aws.amazon.com/q/developer/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">JetBrains AI</h3>
+                            <p class="card-subtitle">AI Assistant</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">IntelliJ</span>
+                        <span class="model-tag">PyCharm</span>
+                        <span class="model-tag">WebStorm</span>
+                    </div>
+                    <a href="https://www.jetbrains.com/ai/" target="_blank" class="card-link">前往使用</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Sourcegraph</h3>
+                            <p class="card-subtitle">Cody</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">全项目理解</span>
+                        <span class="model-tag">跨文件分析</span>
+                    </div>
+                    <a href="https://sourcegraph.com/cody" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Codeium</h3>
+                            <p class="card-subtitle">免费AI代码补全</p>
+                        </div>
+                        <span class="card-badge badge-international">免费</span>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">多语言支持</span>
+                        <span class="model-tag">代码解释</span>
+                    </div>
+                    <a href="https://codeium.com/" target="_blank" class="card-link">免费使用</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Replit</h3>
+                            <p class="card-subtitle">Agent</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">云端开发</span>
+                        <span class="model-tag">代码部署</span>
+                    </div>
+                    <a href="https://replit.com/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Supermaven</h3>
+                            <p class="card-subtitle">极速代码补全</p>
+                        </div>
+                    </div>
+                    <div class="card-models">
+                        <span class="model-tag">极速补全</span>
+                        <span class="model-tag">低延迟</span>
+                    </div>
+                    <a href="https://www.supermaven.com/" target="_blank" class="card-link">前往订阅</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#domestic" class="footer-link">国内平台</a>
+                <a href="#international" class="footer-link">海外平台</a>
+                <a href="https://github.com" class="footer-link">GitHub</a>
+            </div>
+            <div class="footer-copyright">
+                © 2026 AI Coding Plan 导航 | 仅供学习参考
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
